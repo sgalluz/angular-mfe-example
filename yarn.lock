@@ -172,6 +172,15 @@
   dependencies:
     tslib "^2.3.0"
 
+"@angular/cdk@~15.2.0":
+  version "15.2.8"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-15.2.8.tgz#f7da13abd6fb6a1355c02f5c02dc32bc679c4b1d"
+  integrity sha512-jiCoxfBFMH29IZIiPmVUzIWetfUNpMIvC20xYVF8RMM819vPogoObzwK4DN/sXcp/6oVbBzZFaYdijhhIt9soQ==
+  dependencies:
+    tslib "^2.3.0"
+  optionalDependencies:
+    parse5 "^7.1.2"
+
 "@angular/cli@~15.2.0":
   version "15.2.6"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-15.2.6.tgz#d5994fbd4d02e71017d4dd28ba06dc1c3cb7a976"
@@ -3145,12 +3154,12 @@
     tmp "~0.2.1"
     tslib "^2.3.0"
 
-"@nrwl/nx-cloud@16.0.1", "@nrwl/nx-cloud@latest":
-  version "16.0.1"
-  resolved "https://registry.yarnpkg.com/@nrwl/nx-cloud/-/nx-cloud-16.0.1.tgz#617f0f6ab7fba49e769a773369e60d0b9f8892ed"
-  integrity sha512-z5Ydlw9BU6DJCvwVI0LPVdMRORAxeHdIS4wzdsrSvoCeVEL6l6RCk1c3bXQ6IHtA2EdVt0yDirMp0Q0ybf5fIQ==
+"@nrwl/nx-cloud@16.0.2", "@nrwl/nx-cloud@latest":
+  version "16.0.2"
+  resolved "https://registry.yarnpkg.com/@nrwl/nx-cloud/-/nx-cloud-16.0.2.tgz#045bd3b2f38c872e34c2d7b3d1b1a55636a89479"
+  integrity sha512-JsfawqxTWyXx2lMS1YEhTzEiEddbGWPRjwNa2lgLfPA4iMGjMB0mvOZHannBdBaOMo6T/CQxcv0ItxHXF8Sd6w==
   dependencies:
-    nx-cloud "16.0.1"
+    nx-cloud "16.0.2"
 
 "@nrwl/nx-darwin-arm64@15.9.2":
   version "15.9.2"
@@ -9065,17 +9074,18 @@ nwsapi@^2.2.2:
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.4.tgz#fd59d5e904e8e1f03c25a7d5a15cfa16c714a1e5"
   integrity sha512-NHj4rzRo0tQdijE9ZqAx6kYDcoRwYwSYzCA8MY3JzfxlrvEU0jhnhJT9BhqhJs7I/dKcrDm6TyulaRqZPIhN5g==
 
-nx-cloud@16.0.1:
-  version "16.0.1"
-  resolved "https://registry.yarnpkg.com/nx-cloud/-/nx-cloud-16.0.1.tgz#909ef64ad3d794576356a55550c582ef23566a90"
-  integrity sha512-epCxvKVK9niHzZ5TiCJ+93PtXcZmXqkITiqV/qwihJEM4xY4H16qYGYN76Y8sF7dRYC+vlYE5WgFwuGlPXo2Fw==
+nx-cloud@16.0.2:
+  version "16.0.2"
+  resolved "https://registry.yarnpkg.com/nx-cloud/-/nx-cloud-16.0.2.tgz#9e498c2552f5bca87ea0a78bdf637659839e06fa"
+  integrity sha512-K9mzy0CVZHWMrWzyT+s0PveLSGMhFBEobsBXNXPUcLKU8iPpWleJrdMwiIQgNQuRJAyj3QTIKGxRYw0FUW0f7A==
   dependencies:
-    "@nrwl/nx-cloud" "16.0.1"
+    "@nrwl/nx-cloud" "16.0.2"
     axios "^1.0.0"
     chalk "^4.1.0"
     dotenv "~10.0.0"
     fs-extra "^11.1.0"
     node-machine-id "^1.1.12"
+    open "~8.4.0"
     strip-json-comments "^3.1.1"
     tar "6.1.11"
     yargs-parser ">=21.1.1"
@@ -9199,7 +9209,7 @@ open@8.4.1:
     is-docker "^2.1.1"
     is-wsl "^2.2.0"
 
-open@^8.0.9, open@^8.4.0:
+open@^8.0.9, open@^8.4.0, open@~8.4.0:
   version "8.4.2"
   resolved "https://registry.yarnpkg.com/open/-/open-8.4.2.tgz#5b5ffe2a8f793dcd2aad73e550cb87b59cb084f9"
   integrity sha512-7x81NCL719oNbsq/3mh+hVrAWmFuEYUqrq/Iw3kUzH8ReypT9QQ0BLoJS7/G9k6N81XjW4qHWtjWwe/9eLy1EQ==
@@ -9387,7 +9397,7 @@ parse5@^6.0.1:
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
   integrity sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==
 
-parse5@^7.0.0, parse5@^7.1.1:
+parse5@^7.0.0, parse5@^7.1.1, parse5@^7.1.2:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-7.1.2.tgz#0736bebbfd77793823240a23b7fc5e010b7f8e32"
   integrity sha512-Czj1WaSVpaoj0wbhMzLmWD69anp2WH7FXMB9n1Sy8/ZFF9jolSQVMu1Ij5WIyGmcBmhk7EOndpO4mIpihVqAXw==
@@ -11675,9 +11685,9 @@ wide-align@^1.1.5:
     string-width "^1.0.2 || 2 || 3 || 4"
 
 wildcard@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/wildcard/-/wildcard-2.0.0.tgz#a77d20e5200c6faaac979e4b3aadc7b3dd7f8fec"
-  integrity sha512-JcKqAHLPxcdb9KM49dufGXn2x3ssnfjbcaQdLlfZsL9rH9wgDQjUtDxbo8NE0F6SFvydeu1VhZe7hZuHsB2/pw==
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/wildcard/-/wildcard-2.0.1.tgz#5ab10d02487198954836b6349f74fff961e10f67"
+  integrity sha512-CC1bOL87PIWSBhDcTrdeLo6eGT7mCFtrg0uIJtqJUFyK+eJnzl8A1niH56uu7KMa5XFrtiV+AQuHO3n7DsHnLQ==
 
 word-wrap@^1.2.3, word-wrap@~1.2.3:
   version "1.2.3"

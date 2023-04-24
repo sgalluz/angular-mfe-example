@@ -1,0 +1,27 @@
+<header>
+    <div class="nav">
+        <a [routerLink]="['/']" routerLinkActive="router-link-active" class="app-name">
+            <img class="logo" src="assets/angular.svg" />
+            <h3>Angular MFE example</h3>    
+        </a>
+    
+        <ul class="app-menu">
+            <li>
+                <a [routerLink]="['/mfe-1']" routerLinkActive="router-link-active" >MFE 1</a>
+            </li>
+            <div class="separator"></div>
+            <li>
+                <a [routerLink]="['/mfe-2']" routerLinkActive="router-link-active" >MFE 2</a>
+            </li>
+            <div class="separator"></div>
+            <li>
+                other...
+            </li>
+        </ul>
+    </div>
+
+    <div class="links">
+        <img class="logo bell" src="assets/notification.png" />
+        <a href="#"><img class="logo" src="assets/github.svg" /></a>
+    </div>
+</header>
