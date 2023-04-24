@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular-mfe-example/auth": ["libs/auth/src/index.ts"],
+      "@angular-mfe-example/mfe-util": ["libs/mfe-util/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
