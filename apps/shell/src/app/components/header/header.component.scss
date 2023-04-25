@@ -1,11 +1,7 @@
 $transition: all .3s cubic-bezier(0.39, 0.575, 0.565, 1);
 $main-color: #333333;
 
-* {
-    transition: $transition;
-}
-
-header {
+.header {
     background-color: gold;
     color: $main-color;
     position: fixed;
@@ -14,7 +10,7 @@ header {
     border-bottom: 2px solid transparent;
     border-image: linear-gradient(0.25turn, transparent, gold, red, darkred, purple, darkblue, blue, darkgreen, green, lightgreen, yellow, transparent);
     border-image-slice: 1;
-    width:100%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,28 +24,37 @@ header {
             align-items: center;
             text-decoration: none;
             color: $main-color;
+            padding-right: 16px;
+            opacity: 1;
         }
     
-        ul {
+        .separator {
+            margin: 0px 8px;
+            border-left: 1px solid transparent;
+            border-image: linear-gradient(1turn, gold, grey, $main-color, grey, gold);
+            border-image-slice: 1;
+        }
+
+        .nav-bar {
             list-style: none;
             display: flex;
+            padding-inline-start: 0;
+            padding: 0 16px;
             
             li {
                 a {
                     text-decoration: none;    
                     color: $main-color;
-                    
+                    transition: $transition;
+
                     &:hover {
                         color: green;
                     }
+
+                    &.active {
+                        font-weight: 700;
+                    }
                 }
-            }
-    
-            .separator {
-                margin: 0px 8px;
-                border-left: 1px solid transparent;
-                border-image: linear-gradient(1turn, gold, grey, $main-color, grey, gold);
-                border-image-slice: 1;
             }
         }
     }
@@ -70,6 +75,7 @@ header {
         height: auto;
         margin: 0 8px;
         opacity: .7;
+        transition: $transition;
 
         &.bell {
             width: 24px;

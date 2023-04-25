@@ -1,22 +1,18 @@
-<header>
+<div class="header">
     <div class="nav">
         <a [routerLink]="['/']" routerLinkActive="router-link-active" class="app-name">
             <img class="logo" src="assets/angular.svg" />
-            <h3>Angular MFE example</h3>    
+            <h3>Angular MFE example</h3>
         </a>
+
+        <div class="separator">&nbsp;</div>
     
-        <ul class="app-menu">
-            <li>
-                <a [routerLink]="['/mfe-1']" routerLinkActive="router-link-active" >MFE 1</a>
-            </li>
-            <div class="separator"></div>
-            <li>
-                <a [routerLink]="['/mfe-2']" routerLinkActive="router-link-active" >MFE 2</a>
-            </li>
-            <div class="separator"></div>
-            <li>
-                other...
-            </li>
+        <ul class="nav-bar">
+            <li><a [routerLink]="['/mfe-1']" routerLinkActive="active" >Products</a></li>
+            <li class="separator"></li>
+            <li><a [routerLink]="['/mfe-2']" routerLinkActive="active" >Contacts</a>   </li>
+            <li class="separator"></li>
+            <li>other...</li>
         </ul>
     </div>
 
@@ -24,4 +20,4 @@
         <img class="logo bell" src="assets/notification.png" />
         <a href="#"><img class="logo" src="assets/github.svg" /></a>
     </div>
-</header>
+</div>

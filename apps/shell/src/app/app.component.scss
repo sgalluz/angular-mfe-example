@@ -1,0 +1,15 @@
+.app-wrapper {
+    display: grid;
+    grid-template-areas: "a"
+                         "b";
+    grid-template-rows: 52px minmax(100px, calc(100vh - 52px));
+
+    header {
+        grid-area: a;
+    }
+
+    content {
+        grid-area: b;
+        padding: 16px;
+    }
+}

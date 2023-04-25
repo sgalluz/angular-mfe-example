@@ -1,0 +1,109 @@
+%bordered {
+    border-radius: 4px;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 80%;
+    margin: auto;
+
+    .title {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 60px;
+    }
+    
+    .content {
+        section {
+            display: flex;
+
+            &:not(:last-child) {
+                padding-bottom: 40px;
+            }
+            
+            .image {
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                min-height: 100px;
+                max-height: 200px;
+            }
+
+            div {
+                &.image-wrapper {
+                    @extend %bordered;
+                    position: relative;
+                    height: fit-content;
+                    cursor: pointer;
+                    overflow: hidden;
+                }
+
+                &.overlay {
+                    @extend %bordered;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: auto;
+                    width: 100%;
+                    opacity: 0;
+                    transition: .5s ease;
+                    border-radius: 4px;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+
+                    span {
+                        color: white;
+                        text-decoration: none;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        text-align: center;
+                    }
+                }
+
+                &.orange {
+                    background-color: darkorange;
+                }
+
+                &.red {
+                    background-color: darkred;
+                }
+
+                &.support {
+                    background-image: url(/assets/support.jpeg);
+                }
+
+                &.shop {
+                    background-image: url(/assets/shop.webp);
+                }
+            }
+        }    
+    }
+}
+
+.w30 {
+    width: 30%;
+}
+
+.w70 {
+    width: 70%;
+}
+
+.ml16 {
+    margin-left: 16px;
+}
+
+.mr16 {
+    margin-right: 16px;
+}
