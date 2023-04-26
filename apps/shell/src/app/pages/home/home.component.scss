@@ -1,3 +1,6 @@
+// Move to common typography file
+$main-color: #333333;
+
 %bordered {
     border-radius: 4px;
 }
@@ -42,6 +45,14 @@
                     height: fit-content;
                     cursor: pointer;
                     overflow: hidden;
+                    width: 50%;
+                    box-shadow: #333333 5px 5px 25px 2px;
+
+                    &:hover {
+                        .overlay {
+                            width: 100%;
+                        }
+                    }
                 }
 
                 &.overlay {
@@ -52,32 +63,38 @@
                     left: 0;
                     right: 0;
                     height: auto;
-                    width: 100%;
-                    opacity: 0;
+                    width: 0;
                     transition: .5s ease;
                     border-radius: 4px;
-
-                    &:hover {
-                        opacity: 1;
-                    }
+                    overflow: hidden;
 
                     span {
-                        color: white;
                         text-decoration: none;
                         position: absolute;
                         top: 50%;
                         left: 50%;
                         transform: translate(-50%, -50%);
                         text-align: center;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        font-weight: 700;
                     }
                 }
 
                 &.orange {
-                    background-color: darkorange;
+                    background-color: rgba(255, 140, 0, .7);
+
+                    span {
+                        color: rgb(60, 2, 2);
+                    }
                 }
 
-                &.red {
-                    background-color: darkred;
+                &.lightblue {
+                    background-color: rgba(0, 98, 255, 0.5);
+
+                    span {
+                        color: darkblue;
+                    }
                 }
 
                 &.support {
@@ -90,20 +107,4 @@
             }
         }    
     }
-}
-
-.w30 {
-    width: 30%;
-}
-
-.w70 {
-    width: 70%;
-}
-
-.ml16 {
-    margin-left: 16px;
-}
-
-.mr16 {
-    margin-right: 16px;
 }

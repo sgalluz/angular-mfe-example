@@ -14,6 +14,7 @@ $main-color: #333333;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1;
 
     .nav {
         display: flex;
@@ -42,13 +43,20 @@ $main-color: #333333;
             padding: 0 16px;
             
             li {
+                &:not(.separator) {
+                    max-width: 100px;
+                    min-width: 80px;
+                    text-align: center;
+                }
+
                 a {
                     text-decoration: none;    
                     color: $main-color;
                     transition: $transition;
 
                     &:hover {
-                        color: green;
+                        color: rgb(60, 2, 2);
+                        font-weight: 700;
                     }
 
                     &.active {

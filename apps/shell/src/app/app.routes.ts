@@ -1,5 +1,6 @@
 import { Route } from "@angular/router";
 import { HomeComponent } from "./pages/home/home.component";
+import { ContactsComponent } from "./pages/contacts/contacts.component";
 
 export const appRoutes: Route[] = [
     {
@@ -7,7 +8,11 @@ export const appRoutes: Route[] = [
         component: HomeComponent
     },
     {
-        path: '',
+        path: 'contacts',
+        component: ContactsComponent
+    },
+    {
+        path: '**',
         redirectTo: 'home',
         pathMatch: 'full'
     }
