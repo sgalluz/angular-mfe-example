@@ -1,1 +1,26 @@
-<p>navbar works!</p>
+<div class="nav">
+    <div class="hamburger-menu">HAM</div>
+    <a *ngIf="title || logo" [routerLink]="['/']" routerLinkActive="router-link-active" class="app-name">
+        <img class="logo" [src]="logo" />
+        <h3>{{title}}</h3>
+    </a>
+
+    <div class="separator">&nbsp;</div>
+
+    <ul class="nav-bar">
+        <ng-container
+            *ngFor="let current of links; index as index; count as count"
+            [ngTemplateOutlet]="current?.route ? link : text"
+            [ngTemplateOutletContext]="{ current }">
+            <li *ngIf="index && index < count" class="separator"></li>
+        </ng-container>
+    </ul>
+</div>
+
+<ng-template #link let-current="current">
+    <li><a [routerLink]="current.route" routerLinkActive="active" >{{current.label}}</a></li>
+</ng-template>
+
+<ng-template #text let-current="current">
+    <li>{{current.label}}</li>
+</ng-template>

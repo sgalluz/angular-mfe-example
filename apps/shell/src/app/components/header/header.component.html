@@ -1,21 +1,9 @@
 <div class="header">
-    <div class="nav">
-        <div class="hamburger-menu">HAM</div>
-        <a [routerLink]="['/']" routerLinkActive="router-link-active" class="app-name">
-            <img class="logo" src="assets/img/angular.svg" />
-            <h3>MFE Example</h3>
-        </a>
-
-        <div class="separator">&nbsp;</div>
-    
-        <ul class="nav-bar">
-            <li><a [routerLink]="['/products']" routerLinkActive="active" >Products</a></li>
-            <li class="separator"></li>
-            <li><a [routerLink]="['/contacts']" routerLinkActive="active" >Contacts</a>   </li>
-            <li class="separator"></li>
-            <li>other...</li>
-        </ul>
-    </div>
+    <shell-navbar
+        [title]="'MFE Example'"
+        [logo]="'assets/img/angular.svg'"
+        [links]="links">
+    </shell-navbar>
 
     <div class="links">
         <img class="logo bell" src="assets/img/notification.png" />

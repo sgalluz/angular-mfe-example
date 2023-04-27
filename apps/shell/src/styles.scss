@@ -1,5 +1,6 @@
-@forward './assets/scss/theme.scss';
-@forward './assets/scss/typography.scss';
+@import './assets/scss/theme.scss';
+@import './assets/scss/typography.scss';
+@import './assets/scss/animation.scss';
 
 * {
     font-family: 'Roboto';
@@ -12,4 +13,18 @@
     height: 1px;
     background-image: linear-gradient(0.25turn, transparent, yellow, gold, lightgreen, green, darkgreen, green, lightgreen, gold, yellow, transparent);
     margin: 24px 0;
+}
+
+// ICONS
+.logo {
+    width: 32px;
+    height: auto;
+    margin: 0 8px;
+    opacity: .7;
+    transition: $default-transition;
+
+    &:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
 }

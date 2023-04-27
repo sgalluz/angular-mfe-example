@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+export type NavbarLink = {
+  route?: string | string[],
+  label: string
+}
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -8,6 +13,8 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
-  // TODO implement me!
+  @Input() title?: string;
+  @Input() logo?: string;
+  @Input() links?: NavbarLink[];
 
 }

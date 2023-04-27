@@ -1,0 +1,68 @@
+@import '../../../assets/scss/animation.scss';
+@import '../../../assets/scss/theme.scss';
+@import '../../../assets/scss/typography.scss';
+
+.nav {
+    display: flex;
+    align-items: center;
+
+    // FIXME
+    .hamburger-menu {
+        display: none;
+        @media (max-width: 600px) {
+            display: block;
+        }
+    }
+
+    .app-name {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: $main-color;
+        padding-right: 16px;
+        opacity: 1;
+
+        @media (max-width: 600px) {
+            h3 {
+                display: none;
+            }
+        }
+    }
+
+    .separator {
+        margin: 0px 8px;
+        border-left: 1px solid transparent;
+        border-image: linear-gradient(1turn, gold, grey, $main-color, grey, gold);
+        border-image-slice: 1;
+    }
+
+    .nav-bar {
+        list-style: none;
+        display: flex;
+        padding-inline-start: 0;
+        padding: 0 16px;
+        
+        li {
+            &:not(.separator) {
+                max-width: 100px;
+                min-width: 80px;
+                text-align: center;
+            }
+
+            a {
+                text-decoration: none;    
+                color: $main-color;
+                transition: $default-transition;
+
+                &:hover {
+                    color: rgb(60, 2, 2);
+                    font-weight: $font-weight-bold;
+                }
+
+                &.active {
+                    font-weight: $font-weight-bold;
+                }
+            }
+        }
+    }
+}
