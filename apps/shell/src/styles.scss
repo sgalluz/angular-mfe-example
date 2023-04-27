@@ -1,22 +1,15 @@
+@forward './assets/scss/theme.scss';
+@forward './assets/scss/typography.scss';
+
 * {
     font-family: 'Roboto';
     margin: 0;
 }
 
-// SIZING
-.w30 {
-    width: 30%;
-}
-
-.w70 {
-    width: 70%;
-}
-
-// MARGIN
-.ml40 {
-    margin-left: 40px;
-}
-
-.mr40 {
-    margin-right: 40px;
+// SEPARATORS
+.section-separator {
+    width: 100%;
+    height: 1px;
+    background-image: linear-gradient(0.25turn, transparent, yellow, gold, lightgreen, green, darkgreen, green, lightgreen, gold, yellow, transparent);
+    margin: 24px 0;
 }

@@ -1,0 +1,76 @@
+@import '../../../assets/scss/typography.scss';
+
+%bordered {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.image-link {
+    @extend %bordered;
+    position: relative;
+    height: fit-content;
+    cursor: pointer;
+    box-shadow: #333333 5px 5px 25px 2px;
+
+    &:hover {
+        .overlay {
+            width: 100%;
+
+            &.left {
+                left: 0;
+            }
+        }
+    }
+
+    .image {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 100px;
+        max-height: 200px;
+    }
+
+    .overlay {
+        @extend %bordered;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: auto;
+        width: 0;
+        transition: .5s ease;
+
+        &.left {
+            left: 100%;
+        }
+
+        span {
+            text-decoration: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            font-weight: $font-weight-bold;
+        }
+    }
+}
+
+.orange {
+    background-color: rgba(255, 140, 0, .7);
+
+    span {
+        color: rgb(60, 2, 2);
+    }
+}
+
+.blue {
+    background-color: rgba(0, 98, 255, 0.5);
+
+    span {
+        color: darkblue;
+    }
+}

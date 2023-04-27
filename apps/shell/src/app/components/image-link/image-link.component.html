@@ -1,0 +1,8 @@
+<div class="image-link">
+    <div class="image" [ngStyle]="{ 'background-image': bgImage }">&nbsp;</div>
+    <a [routerLink]="route">
+        <div class="overlay" [ngClass]="styles">
+            <span>{{linkText}}</span>
+        </div>
+    </a>
+</div>

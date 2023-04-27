@@ -1,10 +1,6 @@
 // Move to common typography file
 $main-color: #333333;
 
-%bordered {
-    border-radius: 4px;
-}
-
 .home {
     display: flex;
     flex-direction: column;
@@ -22,89 +18,23 @@ $main-color: #333333;
         padding-bottom: 60px;
     }
     
-    .content {
-        section {
-            display: flex;
+    section {
+        display: flex;
 
-            &:not(:last-child) {
-                padding-bottom: 40px;
-            }
-            
-            .image {
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                min-height: 100px;
-                max-height: 200px;
-            }
+        & > :not(:first-child) {
+            margin-left: 40px;
+        }
 
-            div {
-                &.image-wrapper {
-                    @extend %bordered;
-                    position: relative;
-                    height: fit-content;
-                    cursor: pointer;
-                    overflow: hidden;
-                    width: 50%;
-                    box-shadow: #333333 5px 5px 25px 2px;
+        &:not(:last-child) {
+            padding-bottom: 40px;
+        }
+        
+        p {
+            width: 70%;
+        }
 
-                    &:hover {
-                        .overlay {
-                            width: 100%;
-                        }
-                    }
-                }
-
-                &.overlay {
-                    @extend %bordered;
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                    height: auto;
-                    width: 0;
-                    transition: .5s ease;
-                    border-radius: 4px;
-                    overflow: hidden;
-
-                    span {
-                        text-decoration: none;
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        text-align: center;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        font-weight: 700;
-                    }
-                }
-
-                &.orange {
-                    background-color: rgba(255, 140, 0, .7);
-
-                    span {
-                        color: rgb(60, 2, 2);
-                    }
-                }
-
-                &.lightblue {
-                    background-color: rgba(0, 98, 255, 0.5);
-
-                    span {
-                        color: darkblue;
-                    }
-                }
-
-                &.support {
-                    background-image: url(/assets/support.jpeg);
-                }
-
-                &.shop {
-                    background-image: url(/assets/shop.webp);
-                }
-            }
-        }    
+        :not(p) {
+            width: 30%;
+        }
     }
 }

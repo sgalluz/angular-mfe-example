@@ -16,17 +16,17 @@ export class ContactsComponent {
     {
       name: 'Yoda',
       role: 'Jedi Master',
-      profileImage: '/assets/yoda.png'
+      profileImage: '/assets/img/yoda.png'
     },
     {
       name: 'Mace Windu',
       role: 'Jedi Master',
-      profileImage: '/assets/windu.jpeg'
+      profileImage: '/assets/img/windu.jpeg'
     },
     {
       name: 'Obi-Wan Kenobi',
       role: 'Jedi Master',
-      profileImage: '/assets/kenobi.jpeg'
+      profileImage: '/assets/img/kenobi.jpeg'
     }
   ]
 }

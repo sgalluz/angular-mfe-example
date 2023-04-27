@@ -7,13 +7,19 @@ import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
+import { CardComponent } from './components/card/card.component';
+import { ImageLinkComponent } from './components/image-link/image-link.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    ContactsComponent
+    ContactsComponent,
+    CardComponent,
+    ImageLinkComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
