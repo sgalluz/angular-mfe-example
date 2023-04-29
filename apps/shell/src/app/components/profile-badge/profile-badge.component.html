@@ -1,7 +1,11 @@
-<div class="profile-badge" (mouseenter)="isModalVisible = true" (mouseleave)="isModalVisible = false">
-    <img *ngIf="details" class="profile-image" [ngClass]="{ active: isModalVisible }"[src]="details.image" />
+<div class="profile-badge" (mouseleave)="isModalVisible = false">
+    <img *ngIf="details"
+        class="profile-image"
+        [ngClass]="{ active: isModalVisible }"
+        [src]="details.image"
+        (mouseenter)="isModalVisible = true" />
 
-    <div class="profile-modal" *ngIf="isModalVisible">
+    <div class="profile-modal" [@fadeInOut]="isModalVisible ? 'open' : 'close'" >
         <div class="triangle">&nbsp;</div>
         <div class="content">
             <h4>{{details?.firstName}} {{details?.lastName}}</h4>

@@ -1,11 +1,6 @@
 @import '../../../assets/scss/animation.scss';
 @import '../../../assets/scss/theme.scss';
 
-@keyframes fadein {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
 .profile-badge {
     display: flex;
     position: relative;
@@ -31,9 +26,7 @@
     .profile-modal {
         position: absolute;
         top: 32px;
-        // top: 50px;
         right: -14px;
-        animation: fadein .3s ease-in;
 
         .triangle {
             position: relative;
@@ -61,7 +54,7 @@
         }
 
         .content {
-            border-radius: 8px;
+            border-radius: 4px;
             padding: 12px;
             background-color: rgba(255, 255, 255, 0.97);;
             border: 2px solid darkorange;    

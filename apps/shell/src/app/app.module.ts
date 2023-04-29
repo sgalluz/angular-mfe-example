@@ -27,7 +27,7 @@ import { ProfileBadgeComponent } from './components/profile-badge/profile-badge.
     CardComponent,
     ImageLinkComponent,
     NavbarComponent,
-    ProfileBadgeComponent,
+    ProfileBadgeComponent
   ],
   imports: [
     BrowserModule,

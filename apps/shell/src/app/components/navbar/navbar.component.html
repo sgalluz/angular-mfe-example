@@ -1,7 +1,7 @@
 <div class="nav">
-    <div class="hamburger-menu">HAM</div>
     <a *ngIf="title || hasLogo" [routerLink]="['/']" routerLinkActive="router-link-active" class="app-name">
-        <fa-icon *ngIf="hasLogo" [icon]="['fab', 'angular']" size="3x"></fa-icon>
+        <!-- <div class="hamburger-menu">HAM</div> -->
+        <fa-icon *ngIf="hasLogo" [icon]="['fab', 'angular']" size="2x"></fa-icon>
         <h3>{{title}}</h3>
     </a>
 
