@@ -14,7 +14,7 @@ export type NavbarLink = {
 export class NavbarComponent {
 
   @Input() title?: string;
-  @Input() logo?: string;
+  @Input() hasLogo = true;
   @Input() links?: NavbarLink[];
 
 }

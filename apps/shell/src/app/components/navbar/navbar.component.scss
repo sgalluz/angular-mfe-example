@@ -21,6 +21,17 @@
         color: $main-color;
         padding-right: 16px;
         opacity: 1;
+        margin-left: 20px;
+
+        &:hover {
+            cursor: pointer;
+            color: $main-color-hover;
+            transition: $default-transition;
+        }
+
+        h3 {
+            margin-left: 4px;
+        }
 
         @media (max-width: 600px) {
             h3 {
@@ -40,7 +51,7 @@
         list-style: none;
         display: flex;
         padding-inline-start: 0;
-        padding: 0 16px;
+        padding: 0 8px;
         
         li {
             &:not(.separator) {
@@ -55,12 +66,13 @@
                 transition: $default-transition;
 
                 &:hover {
-                    color: rgb(60, 2, 2);
+                    color: $main-color-hover;
                     font-weight: $font-weight-bold;
                 }
 
                 &.active {
                     font-weight: $font-weight-bold;
+                    color: $main-color-hover;
                 }
             }
         }

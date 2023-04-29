@@ -10,6 +10,13 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 import { CardComponent } from './components/card/card.component';
 import { ImageLinkComponent } from './components/image-link/image-link.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import {
+  FaIconLibrary,
+  FontAwesomeModule,
+} from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { ProfileBadgeComponent } from './components/profile-badge/profile-badge.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +27,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     CardComponent,
     ImageLinkComponent,
     NavbarComponent,
+    ProfileBadgeComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,8 +36,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
       initialNavigation: 'enabledBlocking',
       useHash: true,
     }),
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas, fab);
+  }
+}

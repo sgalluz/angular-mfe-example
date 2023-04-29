@@ -1,12 +1,13 @@
 <div class="header">
     <shell-navbar
         [title]="'MFE Example'"
-        [logo]="'assets/img/angular.svg'"
         [links]="links">
     </shell-navbar>
 
     <div class="links">
-        <img class="logo bell" src="assets/img/notification.png" />
-        <a href="#"><img class="logo" src="assets/img/github.svg" /></a>
+        <fa-icon icon="bell"></fa-icon>
+        <fa-icon icon="cart-shopping"></fa-icon>
+        <!-- <fa-icon [icon]="['fab', 'github']"></fa-icon> -->
+        <shell-profile-badge [details]="details"></shell-profile-badge>
     </div>
 </div>

@@ -1,0 +1,27 @@
+<div class="profile-badge" (mouseenter)="isModalVisible = true" (mouseleave)="isModalVisible = false">
+    <img *ngIf="details" class="profile-image" [ngClass]="{ active: isModalVisible }"[src]="details.image" />
+
+    <div class="profile-modal" *ngIf="isModalVisible">
+        <div class="triangle">&nbsp;</div>
+        <div class="content">
+            <h4>{{details?.firstName}} {{details?.lastName}}</h4>
+            <span class="username">
+                <i>Logged as </i>
+                <b>{{details?.username}}</b>
+            </span>
+
+            <div class="paragraph-separator"></div>
+
+            <div class="profile-actions">
+                <a [routerLink]="['/profile']">
+                    <fa-icon icon="person"></fa-icon>
+                    <span>Go to profile</span>
+                </a>
+                <a [routerLink]="['/logout']">
+                    <fa-icon icon="key"></fa-icon>
+                    <span>Logout</span>
+                </a>    
+            </div>
+        </div>
+    </div>
+</div>
