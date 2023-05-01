@@ -12,12 +12,14 @@ import {
 } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { CommonModule } from '@angular/common';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,9 +27,9 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     RouterModule.forRoot(appRoutes, {
       initialNavigation: 'enabledBlocking',
-      useHash: true
+      useHash: true,
     }),
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

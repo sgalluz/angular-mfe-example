@@ -17,55 +17,5 @@
 </div>
 
 <div class="product-list" [class]="mode" [@listAnimation]="items.length">
-    <div
-        *ngFor="let item of items"
-        class="product-card"
-        [routerLink]="'/' + item.id + '/detail'">
-        
-        <div class="product-wrapper">
-            <div class="product-info">
-                <img class="product-image" [src]="'data:image/jpeg;base64,' + item.image" alt="item-image"/>
-                <div class="product-details">
-                    <ng-container [ngTemplateOutlet]="info" [ngTemplateOutletContext]="{ item }"></ng-container>
-
-                    <ng-container
-                        [ngTemplateOutlet]="item?.availableCount <= 5 ? available : null"
-                        [ngTemplateOutletContext]="{ item }">
-                    </ng-container>
-
-                    <ng-container
-                        [ngTemplateOutlet]="item?.deliveryDate ? deliveryDate : empty"
-                        [ngTemplateOutletContext]="{ item, mode }">
-                    </ng-container>
-                </div>
-            </div>
-            <p class="product-price" [class]="{ 'not-available': item?.availableCount === 0 }">{{item.price}} €</p>
-        </div>
-        <fa-icon class="arrow" icon="chevron-right" size="xl" *ngIf="mode === 'list'"></fa-icon>    
-    
-    </div>
+    <products-product-card *ngFor="let item of items" [mode]="mode" [product]="item"></products-product-card>
 </div>
-
-<ng-template #info let-item="item">
-    <div>
-        <p class="product-name">{{item.name}}</p>
-        <p class="product-vendor">Sold by <b>{{item.shop}}</b></p>
-        <p class="product-description" *ngIf="mode === 'list'">{{item.description}}</p>    
-    </div>
-</ng-template>
-
-<ng-template #available let-item="item">
-    <span class="product-vendor not-available" *ngIf="item?.availableCount === 0">No items available</span>
-    <span class="product-vendor" *ngIf="item?.availableCount > 0">Only {{item?.availableCount}} item{{item?.availableCount > 1 ? 's' : ''}} available</span>
-</ng-template>
-
-<ng-template #deliveryDate let-item="item" let-mode="mode">
-    <span class="product-vendor">
-        <span *ngIf="mode === 'list'">Possibly delivered at&nbsp;</span>
-        <b>{{item.deliveryDate}}</b>
-    </span>
-</ng-template>
-
-<ng-template #empty>
-    <span class="product-vendor not-available">Not deliverable</span>
-</ng-template>

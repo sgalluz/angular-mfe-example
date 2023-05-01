@@ -1,0 +1,46 @@
+<div *ngIf="product" class="product-card" ngClass="{{mode}}" routerLink="{{product.id}}">
+    <div class="product-wrapper">
+        <div class="product-info">
+            <img class="product-image" [src]="'data:image/jpeg;base64,' + product.image" alt="product-image"/>
+            <div class="product-details">
+                <ng-container [ngTemplateOutlet]="info" [ngTemplateOutletContext]="{ product }"></ng-container>
+
+                <ng-container
+                    [ngTemplateOutlet]="(product.inStock || 0) <= 5 ? lastAvailables : null"
+                    [ngTemplateOutletContext]="{ product }">
+                </ng-container>
+
+                <ng-container
+                    [ngTemplateOutlet]="product.deliveryDate ? deliveryDate : empty"
+                    [ngTemplateOutletContext]="{ product, mode }">
+                </ng-container>
+            </div>
+        </div>
+        <p class="product-price" [class]="{ 'not-available': product.inStock === 0 }">{{product.price}} €</p>
+    </div>
+    <fa-icon class="arrow" icon="chevron-right" size="xl" *ngIf="mode === 'list'"></fa-icon>    
+</div>
+
+<ng-template #info let-product="product">
+    <div>
+        <p class="product-name">{{product.name}}</p>
+        <p class="product-vendor">Sold by <b>{{product.shop}}</b></p>
+        <p class="product-description" *ngIf="mode === 'list'">{{product.description}}</p>    
+    </div>
+</ng-template>
+
+<ng-template #lastAvailables let-product="product">
+    <span class="product-vendor not-available" *ngIf="(product?.inStock || 0) === 0">No items available</span>
+    <span class="product-vendor" *ngIf="(product?.inStock || 0) > 0">Only {{product?.availableCount}} item{{product?.availableCount > 1 ? 's' : ''}} available</span>
+</ng-template>
+
+<ng-template #deliveryDate let-product="product" let-mode="mode">
+    <span class="product-vendor">
+        <span *ngIf="mode === 'list'">Possibly delivered at&nbsp;</span>
+        <b>{{product.deliveryDate}}</b>
+    </span>
+</ng-template>
+
+<ng-template #empty>
+    <span class="product-vendor not-available">Not deliverable</span>
+</ng-template>

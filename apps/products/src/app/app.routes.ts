@@ -4,16 +4,16 @@ import { ProductDetailComponent } from './pages/product-detail/product-detail.co
 
 export const appRoutes: Route[] = [
     {
-        path: 'all',
+        path: '',
         component: ProductListComponent
     },
     {
-        path: ':id/detail',
+        path: ':id',
         component: ProductDetailComponent
     },
     {
         path: '**',
         pathMatch: 'full',
-        redirectTo: 'all'
+        redirectTo: ''
     }
 ];
