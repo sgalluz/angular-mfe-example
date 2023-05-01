@@ -1,18 +1,24 @@
 <div class="title">
     <h1>Products</h1>
-    <div class="display-mode">
-        <span class="display-as">Display items as</span>
-        <fa-icon icon="bars"
-            class="icon"
-            [class]="{ 'active': mode === 'list' }"
-            (click)="onDisplayMode('list')">
-        </fa-icon>
-        <fa-icon
-            icon="th-large"
-            class="icon"
-            [class]="{ 'active': mode === 'grid' }"
-            (click)="onDisplayMode('grid')">
-        </fa-icon>
+    <div class="filters">
+        <div>Add filters....</div>
+        <div class="display-mode">
+            <span class="display-as">Display items as</span>
+            <fa-icon
+                *ngIf="!previousMode"
+                icon="bars"
+                class="icon"
+                [class]="{ 'active': mode === 'list' }"
+                (click)="onDisplayMode('list')">
+            </fa-icon>
+            <fa-icon
+    
+                icon="th-large"
+                class="icon"
+                [class]="{ 'active': mode === 'grid' }"
+                (click)="onDisplayMode('grid')">
+            </fa-icon>
+        </div>
     </div>
 </div>
 

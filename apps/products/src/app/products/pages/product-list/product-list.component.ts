@@ -1,5 +1,5 @@
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ViewMode } from '../../models/view.mode';
 import { Product } from '../../models/product.model';
 import { DateFormatterService } from '../../services/date-formatter.service';
@@ -37,7 +37,9 @@ import { DateFormatterService } from '../../services/date-formatter.service';
 })
 export class ProductListComponent {
 
-  constructor(private readonly _dateFormatter: DateFormatterService) {}
+  constructor(private readonly _dateFormatter: DateFormatterService) {
+    this.onResize();
+  }
 
   items: Product[] = [ ...Array(25).keys() ]
     .map(n => ({
@@ -51,8 +53,19 @@ export class ProductListComponent {
       price: ((n * 5.13 * 10) + (n + 7 * (n + 1)) / 100).toFixed(2)
     }));
   mode: ViewMode = 'list';
+  previousMode?: ViewMode;
 
   onDisplayMode = (displayMode: ViewMode) => this.mode = displayMode;
 
+  @HostListener('window:resize', ['$event'])
+  private onResize = () => {
+    if(window.innerWidth < 480) {
+      this.previousMode = this.previousMode || this.mode;
+      this.mode = 'grid';
+    } else {
+      this.mode = this.previousMode || this.mode;
+      this.previousMode = undefined;
+    }
+  }
 }
 

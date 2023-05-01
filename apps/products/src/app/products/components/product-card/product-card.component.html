@@ -31,7 +31,7 @@
 
 <ng-template #lastAvailables let-product="product">
     <span class="product-vendor not-available" *ngIf="(product?.inStock || 0) === 0">No items available</span>
-    <span class="product-vendor" *ngIf="(product?.inStock || 0) > 0">Only {{product?.availableCount}} item{{product?.availableCount > 1 ? 's' : ''}} available</span>
+    <span class="product-vendor" *ngIf="(product?.inStock || 0) > 0">Only {{product?.inStock}} item{{product?.inStock > 1 ? 's' : ''}} available</span>
 </ng-template>
 
 <ng-template #deliveryDate let-product="product" let-mode="mode">
