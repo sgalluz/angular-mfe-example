@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'mfe-util',
+  displayName: 'mfe-core',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/libs/mfe-util',
+  coverageDirectory: '../../coverage/libs/mfe-core',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

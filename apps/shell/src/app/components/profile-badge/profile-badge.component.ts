@@ -9,7 +9,6 @@ export type ProfileDetails = {
 }
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'shell-profile-badge',
   templateUrl: './profile-badge.component.html',
   styleUrls: ['./profile-badge.component.scss'],

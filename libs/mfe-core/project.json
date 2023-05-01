@@ -1,7 +1,7 @@
 {
-  "name": "mfe-util",
+  "name": "mfe-core",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/mfe-util/src",
+  "sourceRoot": "libs/mfe-core/src",
   "prefix": "angular-mfe-example",
   "tags": [],
   "projectType": "library",
@@ -10,7 +10,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/mfe-util/jest.config.ts",
+        "jestConfig": "libs/mfe-core/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -24,7 +24,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/mfe-util/**/*.ts", "libs/mfe-util/**/*.html"]
+        "lintFilePatterns": ["libs/mfe-core/**/*.ts", "libs/mfe-core/**/*.html"]
       }
     }
   }

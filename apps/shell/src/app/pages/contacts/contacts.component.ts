@@ -7,7 +7,7 @@ type TeamMember = {
 }
 
 @Component({
-  selector: 'angular-mfe-example-contacts',
+  selector: 'shell-contacts',
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss'],
 })

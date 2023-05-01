@@ -3,7 +3,6 @@ import { NavbarLink } from '../navbar/navbar.component';
 import { ProfileDetails } from '../profile-badge/profile-badge.component';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'shell-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],

@@ -4,7 +4,6 @@ type ImageLinkDirection = 'right' | 'left';
 type ImageLinkTheme = 'orange' | 'blue';
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'shell-image-link',
   templateUrl: './image-link.component.html',
   styleUrls: ['./image-link.component.scss'],

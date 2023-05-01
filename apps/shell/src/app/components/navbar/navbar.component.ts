@@ -6,7 +6,6 @@ export type NavbarLink = {
 }
 
 @Component({
-  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'shell-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
