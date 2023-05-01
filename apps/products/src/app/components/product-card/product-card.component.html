@@ -1,4 +1,4 @@
-<div *ngIf="product" class="product-card" ngClass="{{mode}}" routerLink="{{product.id}}">
+<div *ngIf="product" class="product-card" [ngClass]="mode" routerLink="{{product.id}}">
     <div class="product-wrapper">
         <div class="product-info">
             <img class="product-image" [src]="'data:image/jpeg;base64,' + product.image" alt="product-image"/>

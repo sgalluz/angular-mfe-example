@@ -17,5 +17,9 @@
 </div>
 
 <div class="product-list" [class]="mode" [@listAnimation]="items.length">
-    <products-product-card *ngFor="let item of items" [mode]="mode" [product]="item"></products-product-card>
+    <products-product-card 
+        *ngFor="let item of items"
+        [mode]="mode"
+        [product]="item">
+    </products-product-card>
 </div>

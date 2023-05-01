@@ -24,12 +24,12 @@
         }
     }
 
-    &:not(:last-child) {
-        margin-bottom: 8px;
-    }
-
     & > :not(:first-child) {
         margin-left: 8px;
+    }
+
+    &.list {
+        margin-bottom: 8px;
     }
 
     &.grid {
