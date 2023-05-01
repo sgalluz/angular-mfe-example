@@ -1,9 +1,9 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
-import { ProductCardComponent } from "../components/product-card/product-card.component";
-import { ProductDetailComponent } from "../pages/product-detail/product-detail.component";
-import { ProductListComponent } from "../pages/product-list/product-list.component";
+import { ProductCardComponent } from "./components/product-card/product-card.component";
+import { ProductDetailComponent } from "./pages/product-detail/product-detail.component";
+import { ProductListComponent } from "./pages/product-list/product-list.component";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({

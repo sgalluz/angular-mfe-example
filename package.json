@@ -4,7 +4,6 @@
   "license": "MIT",
   "scripts": {
     "ng": "nx",
-    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
     "build": "nx build",
     "clean:dist": "rimraf dist",
     "clean:coverage": "rimraf coverage",
