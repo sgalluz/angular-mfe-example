@@ -1,6 +1,12 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "npmScope": "angular-mfe-example",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "cli": {
+    "packageManager": "yarn"
+  },
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
@@ -74,5 +80,6 @@
     "@nrwl/angular:component": {
       "style": "scss"
     }
-  }
+  },
+  "defaultProject": "shell"
 }
