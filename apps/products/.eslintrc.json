@@ -9,7 +9,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "angularMfeExample",
+            "prefix": "products",
             "style": "camelCase"
           }
         ],
@@ -17,7 +17,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "angular-mfe-example",
+            "prefix": "products",
             "style": "kebab-case"
           }
         ]
