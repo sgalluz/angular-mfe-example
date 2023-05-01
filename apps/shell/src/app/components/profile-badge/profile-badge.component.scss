@@ -28,6 +28,10 @@
         top: 32px;
         right: -14px;
 
+        &.hidden {
+            display: none;
+        }
+
         .triangle {
             position: relative;
             margin: 0 16px;

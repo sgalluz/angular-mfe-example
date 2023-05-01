@@ -5,7 +5,10 @@
         [src]="details.image"
         (mouseenter)="isModalVisible = true" />
 
-    <div class="profile-modal" [@fadeInOut]="isModalVisible ? 'open' : 'close'" >
+    <div class="profile-modal"
+        [@fadeInOut]="isModalVisible ? 'open' : 'close'"
+        [ngClass]="{ hidden: !isModalVisible }">
+
         <div class="triangle">&nbsp;</div>
         <div class="content">
             <h4>{{details?.firstName}} {{details?.lastName}}</h4>
@@ -27,5 +30,6 @@
                 </a>    
             </div>
         </div>
+
     </div>
 </div>
