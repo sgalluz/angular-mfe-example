@@ -1,7 +1,5 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RouterModule } from "@angular/router";
 import { ProductCardComponent } from "../components/product-card/product-card.component";
 import { ProductDetailComponent } from "../pages/product-detail/product-detail.component";
