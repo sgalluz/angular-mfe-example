@@ -1,7 +1,7 @@
 import { Route } from "@angular/router";
 import { HomeComponent } from "./pages/home/home.component";
 import { ContactsComponent } from "./pages/contacts/contacts.component";
-import { loadRemoteModule } from '@angular-architects/module-federation';
+import { RouteLoader } from "@angular-mfe-example/mfe-core";
 
 export const appRoutes: Route[] = [
     {
@@ -10,13 +10,7 @@ export const appRoutes: Route[] = [
     },
     {
         path: 'products',
-        loadChildren: () =>
-            loadRemoteModule({
-                type: 'module',
-                remoteEntry: 'http://localhost:4210/remoteEntry.js',
-                exposedModule: './ProductsModule'
-            })
-            .then(m => m.ProductsModule)
+        loadChildren: () => new RouteLoader('products').lazyLoadRemoteModule('products')
     },
     {
         path: 'contacts',

@@ -1,0 +1,8 @@
+{
+    "products": {
+      "remoteEntry": "http://localhost:4210/remoteEntry.js",
+      "exposedModule": "./ProductsModule",
+      "moduleName": "ProductsModule"
+    }
+  }
+  
