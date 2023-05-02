@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [],
 })
-export class MfeCoreModule {}
+export class MfeCoreModule { }
+
+export * from './config';
+export * from './routing';
+export * from './mfe-module';
