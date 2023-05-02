@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject, lastValueFrom } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, firstValueFrom } from 'rxjs';
 import { NavigationBehaviorOptions, Router, UrlTree } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 
@@ -46,7 +46,7 @@ export class ExtendedRouter {
           console.error(`Unable to navigate to the selected UrlTree: ${urlTree}\n`, reason);
           navigationResult.next(false);
         }));
-      return lastValueFrom(navigationResult);
+      return firstValueFrom(navigationResult);
     }
 
     return this.navigateByUrl(url, extras);
