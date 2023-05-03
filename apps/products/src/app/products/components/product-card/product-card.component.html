@@ -14,9 +14,23 @@
                     [ngTemplateOutlet]="product.deliveryDate ? deliveryDate : empty"
                     [ngTemplateOutletContext]="{ product, mode }">
                 </ng-container>
+
+                <ng-container
+                    *ngIf="mode === 'list'"
+                    [ngTemplateOutlet]="actions"
+                    [ngTemplateOutletContext]="{ product }">
+                </ng-container>
             </div>
         </div>
-        <p class="product-price" [class]="{ 'not-available': product.inStock === 0 }">{{product.price}} €</p>
+
+        <div class="actions-wrapper">
+            <ng-container
+                *ngIf="mode === 'grid'"
+                [ngTemplateOutlet]="actions"
+                [ngTemplateOutletContext]="{ id: product.id}">
+            </ng-container>
+            <p class="product-price" [class]="{ 'not-available': product.inStock === 0 }">{{product.price}} €</p>    
+        </div>
     </div>
     <fa-icon class="arrow" icon="chevron-right" size="xl" *ngIf="mode === 'list'"></fa-icon>    
 </div>
@@ -43,4 +57,11 @@
 
 <ng-template #empty>
     <span class="product-vendor not-available">Not deliverable</span>
+</ng-template>
+
+<ng-template #actions let-product="product">
+    <div class="actions">
+        <fa-icon icon="cart-plus" (click)="onAddToCart($event, product.id)"></fa-icon>
+        <fa-icon icon="comments"></fa-icon>
+    </div>
 </ng-template>

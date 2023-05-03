@@ -5,9 +5,11 @@ export type Message = {
   payload: Payload
 };
 
+export type Handler = (_?: any) => any;
+
 export type PubSubHandler = {
   token: SubscriptionToken,
-  handler: (_?: any) => any
+  handler: Handler
 };
 
 export type SubscriptionToken = string;

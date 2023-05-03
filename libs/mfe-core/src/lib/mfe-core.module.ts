@@ -6,7 +6,7 @@ import { MfeDataService } from './data';
 })
 export class MfeCoreModule {
   constructor(_: MfeDataService) {
-    // Force creating a singleton instance of MfeDataService during module creation
+    // Force creation of a singleton instance of MfeDataService
   }
 }
 

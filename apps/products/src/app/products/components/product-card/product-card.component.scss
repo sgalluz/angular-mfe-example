@@ -104,6 +104,27 @@
                 }
             }
         }
+
+        .actions-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+        }
+    }
+
+    .actions {
+        & > * {
+            transition: all .3s ease;
+
+            &:hover {
+                cursor: pointer;
+                color: darkred;
+            }
+
+            &:not(:first-child) {
+                margin-left: 8px;
+            }
+        }
     }
 
     .product-price {

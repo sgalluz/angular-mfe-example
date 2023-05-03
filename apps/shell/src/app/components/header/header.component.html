@@ -7,7 +7,7 @@
     <div class="links">
         <fa-icon icon="bell"></fa-icon>
         <fa-icon icon="cart-shopping"></fa-icon>
-        <!-- <fa-icon [icon]="['fab', 'github']"></fa-icon> -->
+        <span class="cart-badge" *ngIf="cartItemsCount">{{cartItemsCount > 9 ? '9+' : cartItemsCount}}</span>
         <shell-profile-badge [details]="details"></shell-profile-badge>
     </div>
 </div>
