@@ -23,7 +23,7 @@
         opacity: 1;
         margin-left: 20px;
 
-        &:hover {
+        &:not(div):hover {
             cursor: pointer;
             color: $main-color-hover;
             transition: $default-transition;

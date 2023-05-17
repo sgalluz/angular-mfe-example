@@ -1,11 +1,10 @@
 <div class="nav">
-    <a *ngIf="title || hasLogo" [routerLink]="['/']" routerLinkActive="router-link-active" class="app-name">
-        <!-- <div class="hamburger-menu">HAM</div> -->
-        <fa-icon *ngIf="hasLogo" [icon]="['fab', 'angular']" size="2x"></fa-icon>
-        <h3>{{title}}</h3>
-    </a>
+    <ng-container
+        [ngTemplateOutlet]="withHomeLink ? logoWithLink : logo"
+        [ngTemplateOutletContext]="{ hasLogo, title }" >
+    </ng-container>
 
-    <div class="separator">&nbsp;</div>
+    <div *ngIf="links?.length" class="separator">&nbsp;</div>
 
     <ul class="nav-bar">
         <ng-container
@@ -23,4 +22,22 @@
 
 <ng-template #text let-current="current">
     <li>{{current.label}}</li>
+</ng-template>
+
+<ng-template #logoWithLink let-hasLogo="hasLogo" let-title="title">
+    <a *ngIf="title || hasLogo" [routerLink]="['/']" routerLinkActive="router-link-active" class="app-name">
+        <ng-container [ngTemplateOutlet]="appName" [ngTemplateOutletContext]="{ hasLogo, title }"></ng-container>
+    </a>
+</ng-template>
+
+<ng-template #logo let-hasLogo="hasLogo" let-title="title">
+    <div *ngIf="title || hasLogo" class="app-name">
+        <ng-container [ngTemplateOutlet]="appName" [ngTemplateOutletContext]="{ hasLogo, title }"></ng-container>
+    </div>
+</ng-template>
+
+<ng-template #appName let-hasLogo="hasLogo" let-title="title">
+    <!-- <div class="hamburger-menu">HAM</div> -->
+    <fa-icon *ngIf="hasLogo" [icon]="['fab', 'angular']" size="2x"></fa-icon>
+    <h3>{{title}}</h3>
 </ng-template>

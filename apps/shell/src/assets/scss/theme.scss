@@ -1,2 +1,19 @@
 $main-color: #333333;
 $main-color-hover: rgba(156, 18, 18, 0.785);
+
+%header {
+    background-color: gold;
+    color: $main-color;
+    position: fixed;
+    width: 100vw;
+    height: 50px;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(0.25turn, transparent, gold, red, darkred, purple, darkblue, blue, darkgreen, green, lightgreen, yellow, transparent);
+    border-image-slice: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 4px 1px 20px 4px;
+}

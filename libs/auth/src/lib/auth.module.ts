@@ -5,3 +5,6 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class AuthModule {}
+
+export * from './models';
+export * from './services';

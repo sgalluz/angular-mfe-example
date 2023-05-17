@@ -17,6 +17,9 @@ import {
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { ProfileBadgeComponent } from './components/profile-badge/profile-badge.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppWrapperComponent } from './components/app-wrapper/app-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +30,14 @@ import { ProfileBadgeComponent } from './components/profile-badge/profile-badge.
     CardComponent,
     ImageLinkComponent,
     NavbarComponent,
-    ProfileBadgeComponent
+    ProfileBadgeComponent,
+    LoginComponent,
+    AppWrapperComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, {
       initialNavigation: 'enabledBlocking',
       useHash: true,

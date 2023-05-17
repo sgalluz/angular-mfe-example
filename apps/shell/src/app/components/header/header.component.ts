@@ -41,14 +41,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
 
     this.pubSubTokens.push(
-      this._pubSub.subscribe('ITEM_ADDED_TO_CART', payload => {
-        console.log('subscribed to ', payload);
-        this.cartItemsCount += payload.quantity;
-      })
+      this._pubSub.subscribe('ITEM_ADDED_TO_CART', payload => this.cartItemsCount += payload.quantity)
     );
   }
 
   ngOnDestroy(): void {
-    this.pubSubTokens.forEach(this._pubSub.unsubscribe);
+    this.pubSubTokens?.forEach(token => this._pubSub.unsubscribe(token));
   }
 }

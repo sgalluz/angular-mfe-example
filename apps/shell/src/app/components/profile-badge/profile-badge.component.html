@@ -5,9 +5,7 @@
         [src]="details.image"
         (mouseenter)="isModalVisible = true" />
 
-    <div class="profile-modal"
-        [@fadeInOut]="isModalVisible ? 'open' : 'close'"
-        [ngClass]="{ hidden: !isModalVisible }">
+    <div class="profile-modal" [@fadeInOut]="isModalVisible ? 'open' : 'close'">
 
         <div class="triangle">&nbsp;</div>
         <div class="content">
