@@ -32,7 +32,7 @@ import { AppWrapperComponent } from './components/app-wrapper/app-wrapper.compon
     NavbarComponent,
     ProfileBadgeComponent,
     LoginComponent,
-    AppWrapperComponent
+    AppWrapperComponent,
   ],
   imports: [
     BrowserModule,

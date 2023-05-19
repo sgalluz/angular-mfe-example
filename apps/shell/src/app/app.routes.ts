@@ -5,6 +5,7 @@ import { RouteLoader } from "@angular-mfe-example/mfe-core";
 import { LoginComponent } from "./pages/login/login.component";
 import { AppWrapperComponent } from "./components/app-wrapper/app-wrapper.component";
 import { authGuard } from "./guards/auth.guard";
+import { logoutGuard } from "./guards/logout.guard";
 
 export const appRoutes: Route[] = [
     {
@@ -27,6 +28,11 @@ export const appRoutes: Route[] = [
             {
                 path: 'contacts',
                 component: ContactsComponent
+            },
+            {
+                path: 'logout',
+                canActivate: [logoutGuard],
+                component: LoginComponent,
             },
             {
                 path: '**',

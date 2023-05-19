@@ -14,7 +14,7 @@ export class AuthenticationService {
       return false;
     }
 
-    // FIXME perform http call to a dedicated API
+    // TODO perform http call to a dedicated API
     this.authProfile = AuthProfile.builder(user)
       .jwt('aaaaaaaa')
       .permissions(['wasd'])
@@ -23,5 +23,11 @@ export class AuthenticationService {
   }
 
   isAuthenticated = () => !!this.authProfile?.jwt && !!this.authProfile.permissions?.length;
+
+  logout = () => {
+    // TODO perform http call to a dedicated API
+    // and destroy auth profile in session
+    this.authProfile = undefined;
+  }
 
 }
