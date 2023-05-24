@@ -1,0 +1,17 @@
+<div class="input-wrapper">
+    <!-- TODO: ngControl?.control?.touched && ngControl?.control?.invalid -->
+    <input
+        [ngClass]="{ invalid: validationError }"
+        [type]="type"
+        [name]="name"
+        [placeholder]="placeholder"
+        [formControl]="$any(ngControl).control" />
+    <label [for]="name">{{label}}
+        <span *ngIf="required">*</span>
+    </label>
+    <span
+        *ngIf="validationError"
+        class="validation-message"
+        [innerText]="validationError">
+    </span>
+</div>

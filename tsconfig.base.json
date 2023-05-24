@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@angular-mfe-example/auth": ["libs/auth/src/index.ts"],
-      "@angular-mfe-example/mfe-core": ["libs/mfe-core/src/index.ts"]
+      "@angular-mfe-example/mfe-core": ["libs/mfe-core/src/index.ts"],
+      "@angular-mfe-example/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

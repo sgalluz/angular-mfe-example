@@ -1,0 +1,96 @@
+.input-wrapper {
+    position: relative;
+    height: 42px;
+    display: grid;
+
+    &:hover {
+        input {
+            border-bottom: 1px solid orange;
+        }
+    }
+
+    label {
+        position: absolute;
+        transition: all 0.2s ease-in-out;
+        left: 8px;
+        top: 12px;
+        font-size: 13.5px;
+    }
+
+    input {
+        position: relative;
+        padding: 0 8px;
+        border: none;
+        outline: none;
+        // transition: all 0.2s ease-in-out;
+        transition-property: background-color, opacity;
+        transition-duration: .2s;
+        transition-timing-function: ease-in-out;
+        height: 40px;
+        border-bottom: 1px solid grey;
+        background: #ffeb3b1a; // rgb(252, 252, 235);
+        z-index: 1;
+        min-width: 240px;
+
+        &.invalid {
+            background: rgba(255, 0, 0, 0.2);
+            border-bottom: 1px solid darkred;
+
+            &:focus, &:focus-visible, &:not(:placeholder-shown) {
+                border-bottom: 2px solid darkred;
+            }
+        }
+
+        &::placeholder {
+            transition: all 0.4s ease-in-out;
+            opacity: 0;
+        }
+
+        &:not(:focus), &:not(:focus-visible) {
+            &::placeholder {
+                opacity: 0;
+                transition: all 0.4s ease-in-out;
+            }
+        }
+
+        &:focus, &:focus-visible, &:not(:placeholder-shown) {
+            border: none;
+            outline: none;
+            padding-top: 12px;
+            height: 27px;
+            border-bottom: 2px solid orange;
+
+            + label {
+                font-size: 10px;
+                top: 4px;
+            }
+
+            &::placeholder {
+                opacity: 1;
+            }
+        }
+
+        &:not(:placeholder-shown) {
+            &:not(:focus), :not(:focus-visible) {
+                border-bottom: 1px solid grey;
+            }
+        }
+
+        &:disabled {
+            background-color: rgba(211, 211, 211, .3);
+            border-bottom: 1px solid grey;
+            cursor: not-allowed;
+
+            &:focus, &:focus-visible, &:not(:placeholder-shown) {
+                border-bottom: 1px solid grey;
+            }
+        }
+    }
+
+    .validation-message {
+        transition: .3s all ease;
+        color: #540a0a;
+        font-size: 13px;
+        margin-top: 2px;
+    }
+}

@@ -1,0 +1,10 @@
+<div class="toast" [@toastTrigger]="visible ? 'open' : 'close'">
+  <div class="severity" [ngClass]="severity || 'info'"></div>
+  <div class="toast-wrapper">
+    <div class="toast-header">
+      <h4 class="title">{{ title }}</h4>
+      <fa-icon icon="close" (click)="onClose()"></fa-icon>
+    </div>
+    <p class="toast-body">{{ message }}</p>
+  </div>
+</div>
