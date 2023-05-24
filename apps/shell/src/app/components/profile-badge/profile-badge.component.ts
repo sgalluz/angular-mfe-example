@@ -14,22 +14,19 @@ export type ProfileDetails = {
   styleUrls: ['./profile-badge.component.scss'],
   animations: [
     trigger('fadeInOut', [
-      state(
-        'open',
-        style({ opacity: 1 })
-      ),
-      state(
-        'close',
-        style({ opacity: 0 })
-      ),
-      transition(
-        'open => close',
-        [animate('.3s ease-out')]
-      ),
-      transition(
-        'close => open',
-        [animate('.3s ease-in')]
-      )
+      transition('void => *', [ 
+        style({ opacity: 0 }),
+        animate(
+          '.3s ease-in',
+          style({ opacity: 1 })
+        )
+      ]),
+      transition('* => void', [
+        animate(
+          '.3s ease-out', 
+          style({ opacity: 0 })
+        ) 
+      ])
     ])
   ]
 })
