@@ -20,6 +20,7 @@ import { ProfileBadgeComponent } from './components/profile-badge/profile-badge.
 import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppWrapperComponent } from './components/app-wrapper/app-wrapper.component';
+import { UiInputsModule, UiToastModule } from '@angular-mfe-example/ui';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,8 @@ import { AppWrapperComponent } from './components/app-wrapper/app-wrapper.compon
       useHash: true,
     }),
     FontAwesomeModule,
+    UiInputsModule,
+    UiToastModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -3,27 +3,33 @@
         <shell-navbar [title]="'MFE Example'"></shell-navbar>
     </header>
     
-    
     <form [formGroup]="loginForm" (submit)="onLogin()">
         <div class="login-title">
             <h2>Log into MFE Example</h2>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem ducimus perferendis repudiandae ab delectus ipsam, dolorum minima vitae maiores ipsa reprehenderit obcaecati blanditiis animi! Recusandae cumque iure sed. Quisquam, nesciunt!</p>
         </div>
 
+        <ui-input-text
+            type="text"
+            name="user"
+            formControlName="user"
+            [placeholder]="'Tell us who your are...'"
+            [required]="true"
+            [label]="'Username'">
+        </ui-input-text>
 
-        <div class="input-wrapper"><!-- cdkTrapFocus cdkTrapFocusAutoCapture -->
-            <input type="text" name="user" formControlName="user" placeholder="Tell us who your are..." />
-            <label for="user">Username</label>
-        </div>
-    
-        <div class="input-wrapper">
-            <input type="password" name="password" formControlName="password" placeholder="...and what is your secret ;)" />
-            <label for="password">Password</label>
-        </div>
+        <ui-input-text
+            type="password"
+            name="password"
+            formControlName="password"
+            [placeholder]="'...and what is your secret ;)'"
+            [required]="true"
+            [label]="'Password'">
+        </ui-input-text>
     
         <label><input type="checkbox" formControlName="rememberMe" />&nbsp;Remember me</label>
 
-        <button class="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+        <button class="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
     </form>
     
     <footer>

@@ -6,7 +6,7 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: space-between;
-    background-image: url(/assets/img/login-bg.jpeg);
+    background-image: url(/assets/img/login-bg.svg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -30,7 +30,7 @@ form {
     transition: all .3s cubic-bezier(0.4, 0, 1, 1);
     // box-shadow: orange 0px 2px 7px 2px;
     box-shadow: orange 0px 1px 4px 0px;
-    background-color: rgba(255, 255, 255, .7);
+    background-color: rgba(255, 255, 255, .8);
 
     & > :not(:last-child) {
         margin-bottom: 24px;
@@ -39,7 +39,7 @@ form {
     &:hover {
         // box-shadow: darkorange 0px 2px 12px 2px;
         box-shadow: darkorange 0px 2px 7px 2px;
-        background-color: rgba(255, 255, 255, .9);
+        background-color: rgba(255, 255, 255, .95);
     }
 
     .login-title {
@@ -47,73 +47,6 @@ form {
 
         h2 {
             margin-bottom: 16px;
-        }
-    }
-
-    .input-wrapper {
-        position: relative;
-        height: 42px;
-
-        &:hover {
-            input {
-                border-bottom: 1px solid orange;
-            }
-        }
-
-        label {
-            position: absolute;
-            transition: all 0.2s ease-in-out;
-            left: 8px;
-            top: 12px;
-            font-size: 13.5px;
-        }
-    
-        input {
-            position: relative;
-            padding: 0 8px;
-            border: none;
-            outline: none;
-            transition: all 0.2s ease-in-out;
-            height: 40px;
-            border-bottom: 1px solid grey;
-            background: #ffeb3b1a; // rgb(252, 252, 235);
-            z-index: 1;
-            min-width: 240px;
-    
-            &::placeholder {
-                transition: all 0.4s ease-in-out;
-                opacity: 0;
-            }
-
-            &:not(:focus), &:not(:focus-visible) {
-                &::placeholder {
-                    opacity: 0;
-                    transition: all 0.4s ease-in-out;
-                }
-            }
-
-            &:focus, &:focus-visible, &:not(:placeholder-shown) {
-                border: none;
-                outline: none;
-                padding-top: 12px;
-                height: 27px;
-                border-bottom: 2px solid orange;
-
-                + label {
-                    font-size: 10px;
-                    top: 4px;
-                }
-
-                &::placeholder {
-                    opacity: 1;
-                }
-            }
-
-            &:not(:placeholder-shown) {
-                &:not(:focus), :not(:focus-visible) {
-                    border-bottom: 1px solid grey;
-                }
-            }
         }
     }
 }
