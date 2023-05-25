@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { ToastSeverity } from '../../models/toast.model';
-import { ReplaySubject, Subscription, delay, of, takeUntil, tap } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, Subscription, delay, filter, interval, map, of, takeUntil, tap } from 'rxjs';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
@@ -18,26 +18,36 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   ]
 })
 export class ToastComponent implements OnInit, OnDestroy {
+
+  private readonly DELAY_TIMEOUT = 3500;
+  private readonly DISPOSE_TIMEOUT = 300;
+  private readonly INTERVAL_MS = 50;
+
   @Input() severity!: ToastSeverity;
   @Input() title!: string;
   @Input() message!: string;
+  @Input() duration = this.DELAY_TIMEOUT;
 
   @Output() dispose = new EventEmitter();
 
   visible = true;
-
-  private readonly DELAY_TIMEOUT = 3500;
-  private readonly DISPOSE_TIMEOUT = 300;
+  percentage = 100;
+  
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
+  private timeout = 0;
+  private _timerEnabled = new BehaviorSubject<boolean>(true);
 
   ngOnInit(): void {
-    of(this.title)
-    .pipe(
-      takeUntil(this.destroyed$),
-      delay(this.DELAY_TIMEOUT),
-      tap(this.onClose)
-    )
-    .subscribe();
+    interval(this.INTERVAL_MS)
+      .pipe(
+        takeUntil(this.destroyed$),
+        filter(() => this._timerEnabled.value),
+        map(() => this.timeout += this.INTERVAL_MS),
+        tap(() => this.percentage = 100 - (this.timeout / this.duration) * 100),
+        filter(() => this.timeout >= this.duration),
+        tap(this.onClose)
+      )
+      .subscribe();
   }
 
   ngOnDestroy(): void {
@@ -55,4 +65,8 @@ export class ToastComponent implements OnInit, OnDestroy {
       )
       .subscribe();
     }
+
+  onMouseOver = () => this._timerEnabled.next(false);
+
+  onMouseLeave = () => this._timerEnabled.next(true);
 }
