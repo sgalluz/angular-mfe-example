@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 type ImageLinkDirection = 'right' | 'left';
 type ImageLinkTheme = 'orange' | 'blue';
@@ -7,8 +7,9 @@ type ImageLinkTheme = 'orange' | 'blue';
   selector: 'shell-image-link',
   templateUrl: './image-link.component.html',
   styleUrls: ['./image-link.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ImageLinkComponent implements OnChanges {
+export class ImageLinkComponent implements OnInit {
 
   @Input() direction: ImageLinkDirection = 'right';
   @Input() image?: string;
@@ -19,12 +20,10 @@ export class ImageLinkComponent implements OnChanges {
   bgImage?: string;
   styles?: string;
 
-  ngOnChanges(changes: SimpleChanges): void {
-    const newBgImage = changes?.['image']?.currentValue;
-    if (!!newBgImage && this.bgImage !== newBgImage) {
-      this.bgImage = `url(${newBgImage})`;
-    }
-
-    this.styles = [this.theme, this.direction].filter(t => !!t).join(' ');
+  ngOnInit(): void {
+    this.bgImage = `url(${this.image})` || '';
+    this.styles = [this.theme, this.direction]
+      .filter(t => !!t)
+      .join(' ');
   }
 }

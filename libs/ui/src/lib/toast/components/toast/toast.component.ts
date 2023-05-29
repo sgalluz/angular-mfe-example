@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { ToastSeverity } from '../../models/toast.model';
-import { BehaviorSubject, ReplaySubject, Subscription, delay, filter, interval, map, of, takeUntil, tap } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, concatMap, delay, filter, interval, map, of, take, takeUntil, tap } from 'rxjs';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
@@ -42,10 +42,10 @@ export class ToastComponent implements OnInit, OnDestroy {
       .pipe(
         takeUntil(this.destroyed$),
         filter(() => this._timerEnabled.value),
-        map(() => this.timeout += this.INTERVAL_MS),
+        tap(() => this.timeout += this.INTERVAL_MS),
         tap(() => this.percentage = 100 - (this.timeout / this.duration) * 100),
         filter(() => this.timeout >= this.duration),
-        tap(this.onClose)
+        concatMap(this.onDispose)
       )
       .subscribe();
   }
@@ -55,18 +55,19 @@ export class ToastComponent implements OnInit, OnDestroy {
     this.destroyed$.complete();
   }
 
-  onClose = () => {
-    const subscription: Subscription = of(true)
-      .pipe(
-        tap(() => this.visible = false),
-        delay(this.DISPOSE_TIMEOUT),
-        tap(() => this.dispose.emit()),
-        tap(() => subscription.unsubscribe())
-      )
-      .subscribe();
-    }
+  onClose = () => this.onDispose().subscribe();
 
   onMouseOver = () => this._timerEnabled.next(false);
 
   onMouseLeave = () => this._timerEnabled.next(true);
+
+  private onDispose = (): Observable<boolean> =>
+    of(this.percentage)
+      .pipe(
+        take(1),
+        tap(() => this.visible = false),
+        delay(this.DISPOSE_TIMEOUT),
+        tap(() => this.dispose.emit()),
+        map(() => true)
+      );
 }

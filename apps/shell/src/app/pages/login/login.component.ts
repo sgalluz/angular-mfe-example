@@ -1,5 +1,5 @@
 import { AuthenticationService } from '@angular-mfe-example/auth';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastService } from '@angular-mfe-example/ui';
@@ -8,6 +8,7 @@ import { ToastService } from '@angular-mfe-example/ui';
   selector: 'shell-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
 
@@ -24,14 +25,17 @@ export class LoginComponent {
     });
   }
 
-  onLogin = (): void => {
+  onLogin = (): Promise<boolean> => {
     const { user, password } = this.loginForm.controls;
-    const authenticated = this._authenticator.authenticate(user?.value, password?.value);
-    if (authenticated) {
-      this._router.navigate(['home']).then();
-    } else {
-      this._toaster.error('Login failed', 'It seems that you\'re not authorized to log in...\nIf not, please retry!');
-    }
+    if (this._authenticator.authenticate(user?.value, password?.value)) {
+      return this._router.navigate(['home']).then();
+    }    
+    return this.authenticationFailed();
+  }
+
+  private authenticationFailed = (): Promise<boolean> => {
+    this._toaster.error('Login failed', 'It seems that you\'re not authorized to log in...\nIf not, please retry!');
     this.loginForm.controls['password'].setValue('');
+    return Promise.resolve(false);
   }
 }
