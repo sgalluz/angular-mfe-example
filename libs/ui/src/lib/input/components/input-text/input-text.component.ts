@@ -1,10 +1,9 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, Optional, Self } from '@angular/core';
 import { NgControl } from '@angular/forms';
 import { v4 as uuid } from 'uuid';
 import { DefaultValueAccessorDirective } from '../../../shared/directives/default-value-accessor.directive';
 import { ReplaySubject, filter, map, takeUntil, tap } from 'rxjs';
-import errorFormatters from '../../../shared/formatters/validation.formatter';
-import { injectNgControl } from '../../../shared/injection/ng-control';
+import errorFormatters from '../../../shared/validation/formatters/validation.formatter';
 
 type InputType = 'text' | 'password';
 
@@ -27,8 +26,8 @@ export class InputTextComponent implements OnInit, OnDestroy {
 
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
 
-  constructor() {
-    this.ngControl = injectNgControl();
+  constructor(@Optional() @Self() private readonly _ngControl: NgControl) {
+    this.ngControl = _ngControl;
   }
 
   ngOnInit(): void {

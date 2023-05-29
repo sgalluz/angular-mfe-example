@@ -33,14 +33,14 @@ export class ToastComponent implements OnInit, OnDestroy {
   visible = true;
   percentage = 100;
   
-  private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
+  private timerDestroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
+  private _timerEnabled: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   private timeout = 0;
-  private _timerEnabled = new BehaviorSubject<boolean>(true);
 
   ngOnInit(): void {
     interval(this.INTERVAL_MS)
       .pipe(
-        takeUntil(this.destroyed$),
+        takeUntil(this.timerDestroyed$),
         filter(() => this._timerEnabled.value),
         tap(() => this.timeout += this.INTERVAL_MS),
         tap(() => this.percentage = 100 - (this.timeout / this.duration) * 100),
@@ -51,8 +51,7 @@ export class ToastComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.destroyed$.next(true);
-    this.destroyed$.complete();
+    this.timerDestroyed$.complete();
   }
 
   onClose = () => this.onDispose().subscribe();
@@ -65,9 +64,10 @@ export class ToastComponent implements OnInit, OnDestroy {
     of(this.percentage)
       .pipe(
         take(1),
+        tap(() => this.timerDestroyed$.next(true)),
         tap(() => this.visible = false),
         delay(this.DISPOSE_TIMEOUT),
         tap(() => this.dispose.emit()),
-        map(() => true)
+        map(() => !this.visible)
       );
 }

@@ -33,7 +33,7 @@ describe('ToastComponent', () => {
       fixture.detectChanges();
       jest.advanceTimersByTime(3500);
 
-      expect((component as any).onDispose).toHaveBeenCalled();
+      expect((component as any).onDispose).toHaveBeenCalledTimes(1);
     });
 
     it('should not call onDispose method if timer is not enabled', () => {
