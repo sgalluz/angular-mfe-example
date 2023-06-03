@@ -1,8 +1,9 @@
 import { AuthenticationService } from '@angular-mfe-example/auth';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastService } from '@angular-mfe-example/ui';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'shell-login',
@@ -16,24 +17,27 @@ export class LoginComponent {
 
   constructor(private readonly _authenticator: AuthenticationService,
               private readonly _router: Router,
+              private readonly _formBuilder: FormBuilder,
               private readonly _toaster: ToastService) {
 
-    this.loginForm = new FormGroup({
+    this.loginForm = this._formBuilder.group({
       user: new FormControl<string>('', [Validators.required]),
       password: new FormControl<string>('', [Validators.required]),
       rememberMe: new FormControl<boolean>(false, [Validators.required])
     });
   }
 
-  onLogin = (): Promise<boolean> => {
+  onLogin = (): void => {
     const { user, password } = this.loginForm.controls;
-    if (this._authenticator.authenticate(user?.value, password?.value)) {
-      return this._router.navigate(['home']).then();
-    }    
-    return this.authenticationFailed();
+    this._authenticator.login(user?.value, password?.value)
+      .pipe(
+        catchError(this.authenticationFailed)
+      )
+      .subscribe(() => this._router.navigate(['home']).then());
   }
 
-  private authenticationFailed = (): Promise<boolean> => {
+  private authenticationFailed = (error: any): Promise<boolean> => {
+    console.error(error);
     this._toaster.error('Login failed', 'It seems that you\'re not authorized to log in...\nIf not, please retry!');
     this.loginForm.controls['password'].setValue('');
     return Promise.resolve(false);

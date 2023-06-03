@@ -75,6 +75,7 @@
       "defaultConfiguration": "development",
       "options": {
         "port": 4200,
+        "proxyConfig": "proxy.conf.ts",
         "publicHost": "http://localhost:4200"
       }
     },

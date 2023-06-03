@@ -21,6 +21,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppWrapperComponent } from './components/app-wrapper/app-wrapper.component';
 import { UiInputsModule, UiToastModule } from '@angular-mfe-example/ui';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AUTH_STRATEGY, JwtTokenStrategy, TokenInterceptor, authStrategyProvider } from '@angular-mfe-example/auth';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { UiInputsModule, UiToastModule } from '@angular-mfe-example/ui';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, {
       initialNavigation: 'enabledBlocking',
@@ -47,7 +50,18 @@ import { UiInputsModule, UiToastModule } from '@angular-mfe-example/ui';
     UiInputsModule,
     UiToastModule
   ],
-  providers: [],
+  providers: [
+    // FIXME get strategy from configuration
+    {
+      provide: AUTH_STRATEGY,
+      useFactory: () => new JwtTokenStrategy()
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
