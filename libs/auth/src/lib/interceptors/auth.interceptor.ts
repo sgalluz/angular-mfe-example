@@ -37,13 +37,12 @@ export class TokenInterceptor implements HttpInterceptor {
                 )
             );
 
-    private handleUnauthorized = (request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> => {
-        return iif(
+    private handleUnauthorized = (request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> =>
+        iif(
             () => this.isRefreshingToken.getValue(),
             this.enqueueRequest(request, next),
             this.processRequestQueue(request, next)
         );
-    }
 
     private processRequestQueue = (request: HttpRequest<any>, next: HttpHandler) =>
         of(request).pipe(
